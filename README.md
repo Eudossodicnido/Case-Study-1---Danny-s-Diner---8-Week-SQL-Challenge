@@ -25,3 +25,6 @@ Danny has shared with you 3 key datasets for this case study:
 <p align="center">
   <img src="https://user-images.githubusercontent.com/69009356/175824722-7f9e9b2f-4e6b-4800-899b-b7150a0faa9e.png" />
 </p>
+
+### Questions
+## 1. What is the total amount each customer spent at the restaurant?

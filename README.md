@@ -25,3 +25,4 @@ Danny has shared with you 3 key datasets for this case study:
 <p align="center">
   <img src="https://dbdiagram.io/d/608d07e4b29a09603d12edbd/?utm_source=dbdiagram_embed&utm_medium=bottom_open" />
 </p>
+<iframe width="560" height="315" src="https://dbdiagram.io/d/608d07e4b29a09603d12edbd/?utm_source=dbdiagram_embed&utm_medium=bottom_open"> </iframe>

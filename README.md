@@ -23,6 +23,5 @@ Danny has shared with you 3 key datasets for this case study:
   - members
 
 <p align="center">
-  <img src="https://dbdiagram.io/d/608d07e4b29a09603d12edbd/?utm_source=dbdiagram_embed&utm_medium=bottom_open" />
+  <img src="https://user-images.githubusercontent.com/69009356/175824722-7f9e9b2f-4e6b-4800-899b-b7150a0faa9e.png" />
 </p>
-<iframe width="560" height="315" src="https://dbdiagram.io/d/608d07e4b29a09603d12edbd/?utm_source=dbdiagram_embed&utm_medium=bottom_open"> </iframe>

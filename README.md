@@ -33,8 +33,10 @@ Danny has shared with you 3 key datasets for this case study:
 SELECT
   sales.customer_id,
   SUM(menu.price) AS total_sales
-FROM dannys_diner.sales
-left join dannys_diner.menu on sales.product_id=menu.product_id
+FROM 
+  dannys_diner.sales
+LEFT JOIN 
+  dannys_diner.menu ON sales.product_id=menu.product_id
 GROUP BY
   sales.customer_id;
 ~~~~

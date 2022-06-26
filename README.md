@@ -42,7 +42,6 @@ GROUP BY
 ~~~~
  
  <p align="center">
-  <img src="https://user-images.githubusercontent.com/69009356/175825191-382b916f-906f-489e-a899-d77c8755bb38.png)
-" />
+  <img src="https://user-images.githubusercontent.com/69009356/175825191-382b916f-906f-489e-a899-d77c8755bb38.png" />
 </p>
 

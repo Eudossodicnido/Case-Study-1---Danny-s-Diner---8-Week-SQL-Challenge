@@ -222,11 +222,41 @@ GROUP BY
 #### 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
 ~~~~sql
-
+SELECT
+  sales.customer_id,
+  SUM(CASE
+      WHEN menu.product_id = 1 THEN 20 * 10 * menu.price
+      ELSE 10 * menu.price END) AS points
+FROM 
+  dannys_diner.sales
+INNER JOIN 
+dannys_diner.menu ON sales.product_id = menu.product_id
+GROUP BY 
+  sales.customer_id
+ORDER BY 
+  points DESC
 ~~~~
 
 #### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 ~~~~sql
-
+SELECT
+  sales.customer_id,
+  SUM(
+    CASE
+      WHEN menu.product_id = 1 THEN 2 * 10 * menu.price
+      WHEN sales.order_date BETWEEN members.join_date::DATE AND (members.join_date::DATE+7) THEN 2 * 10 * menu.price  
+      ELSE 10 * menu.price END) AS points
+FROM 
+  dannys_diner.sales
+INNER JOIN 
+  dannys_diner.menu ON sales.product_id = menu.product_id
+INNER JOIN 
+  dannys_diner.members ON sales.customer_id = members.customer_id 
+WHERE 
+  sales.order_date< '2021-01-31'
+GROUP BY 
+  sales.customer_id
+ORDER BY 
+  points DESC
 ~~~~

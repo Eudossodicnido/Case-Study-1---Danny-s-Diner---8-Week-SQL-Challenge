@@ -49,19 +49,60 @@ GROUP BY
 #### 2. How many days has each customer visited the restaurant?
 
 ~~~~sql
-
+SELECT
+  customer_id,
+  COUNT (DISTINCT order_date) as n_of_visits
+FROM 
+  dannys_diner.sales
+GROUP BY
+   customer_id
 ~~~~
 
 #### 3. What was the first item from the menu purchased by each customer?
 
 ~~~~sql
+WITH temp_t AS (
+SELECT
+  sales.customer_id,
+  sales.order_date,
+  DENSE_RANK () OVER (PARTITION BY sales.customer_id ORDER BY sales.order_date) AS ordered_dates,
+  menu.product_name
+FROM 
+  dannys_diner.sales
+INNER JOIN 
+  dannys_diner.menu on sales.product_id=menu.product_id)
 
+SELECT DISTINCT 
+  customer_id,
+  product_name
+FROM 
+  temp_t
+WHERE 
+  ordered_dates= 1
 ~~~~
 
 #### 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 
 ~~~~sql
+WITH popular_meal AS (SELECT
+  sales.product_id,
+  count (sales.product_id) as n_of_purchases,
+  menu.product_name
+FROM 
+  dannys_diner.sales
+INNER JOIN 
+  dannys_diner.menu ON sales.product_id=menu.product_id
+GROUP BY 
+  sales.product_id, menu.product_name)
 
+SELECT
+  n_of_purchases,
+  product_name
+FROM 
+  popular_meal
+ORDER BY 
+  n_of_purchases DESC
+LIMIT 1
 ~~~~
 
 #### 5. Which item was the most popular for each customer?

@@ -280,7 +280,7 @@ SELECT
   SUM(
     CASE
       WHEN menu.product_id = 1 THEN 2 * 10 * menu.price
-      WHEN sales.order_date BETWEEN members.join_date::DATE AND (members.join_date::DATE+7) THEN 2 * 10 * menu.price  
+      WHEN sales.order_date BETWEEN members.join_date::DATE AND (members.join_date::DATE+6) THEN 2 * 10 * menu.price  
       ELSE 10 * menu.price END) AS points
 FROM 
   dannys_diner.sales
@@ -297,7 +297,7 @@ ORDER BY
 ~~~~
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/69009356/177041147-fc538434-1813-47a4-b082-5501e87ebf6d.png" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041576-02cd7d5f-7e92-4738-9412-be640d0db955.png" />
 </p>
 
 ### Bonus Questions

@@ -1,10 +1,11 @@
-# Case-Study-1---Danny-s-Diner---8-Week-SQL-Challenge
+# Data analys of a restaurant database with SQL
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/69009356/175824201-492e580d-074f-4357-98eb-31e0c09f8545.png" />
+  <img src="https://user-images.githubusercontent.com/69009356/177040208-f21aeb17-f044-4620-8591-29eb5ec0eb3e.png" />
 </p>
 
 ### Introduction
 
+This is analysis is the solving of 1st case study the popular online 8 Week SQL Challenge by Danny Ma. 
 Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
 
 Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.

@@ -256,7 +256,7 @@ GROUP BY
 SELECT
   sales.customer_id,
   SUM(CASE
-      WHEN menu.product_id = 1 THEN 20 * 10 * menu.price
+      WHEN menu.product_id = 1 THEN 2 * 10 * menu.price
       ELSE 10 * menu.price END) AS points
 FROM 
   dannys_diner.sales
@@ -269,7 +269,7 @@ ORDER BY
 ~~~~
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/69009356/177041128-728515e2-4a10-483b-9f78-a950650d687b.png" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041355-f4e1ac48-80a7-444b-8953-c0b5dd56d194.png" />
 </p>
 
 #### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?

@@ -1,4 +1,4 @@
-# Data analys of a restaurant database with SQL
+# Data analysis of a restaurant database with SQL
 <p align="center">
   <img src="https://user-images.githubusercontent.com/69009356/177040208-f21aeb17-f044-4620-8591-29eb5ec0eb3e.png" />
 </p>
@@ -60,6 +60,10 @@ GROUP BY
    customer_id
 ~~~~
 
+<p align="center">
+  <img src="" />
+</p>
+
 #### 3. What was the first item from the menu purchased by each customer?
 
 ~~~~sql
@@ -83,6 +87,10 @@ FROM
 WHERE 
   ordered_dates= 1
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>
 
 #### 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 
@@ -110,6 +118,10 @@ ORDER BY
 LIMIT 1
 ~~~~
 
+<p align="center">
+  <img src="" />
+</p>
+
 #### 5. Which item was the most popular for each customer?
 
 ~~~~sql
@@ -136,6 +148,10 @@ FROM
 WHERE 
   item_rank = 1
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>
 
 #### 6. Which item was purchased first by the customer after they became a member?
 
@@ -165,6 +181,10 @@ WHERE
   order_rank = 1
 ~~~~
 
+<p align="center">
+  <img src="" />
+</p>
+
 #### 7. Which item was purchased just before the customer became a member?
 
 ~~~~sql
@@ -192,6 +212,11 @@ FROM
 WHERE 
   order_rank = 1
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>
+
 #### 8. What is the total items and amount spent for each member before they became a member?
 
 ~~~~sql
@@ -221,6 +246,10 @@ GROUP BY
   customer_id
 ~~~~
 
+<p align="center">
+  <img src="" />
+</p>
+
 #### 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
 ~~~~sql
@@ -238,6 +267,10 @@ GROUP BY
 ORDER BY 
   points DESC
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>
 
 #### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
@@ -262,6 +295,10 @@ GROUP BY
 ORDER BY 
   points DESC
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>
 
 ### Bonus Questions
 ### Join All The Things
@@ -294,6 +331,10 @@ ORDER BY
   sales.customer_id,
   sales.order_date
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>
 
 ### Rank All The Things
 #### 12. Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
@@ -333,3 +374,7 @@ SELECT
 FROM 
   cte
 ~~~~
+
+<p align="center">
+  <img src="" />
+</p>

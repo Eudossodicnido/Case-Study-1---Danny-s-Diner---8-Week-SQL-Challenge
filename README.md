@@ -61,7 +61,7 @@ GROUP BY
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041018-cc4e1161-943d-45ec-ba8c-e558a52ff93c.png" />
 </p>
 
 #### 3. What was the first item from the menu purchased by each customer?
@@ -89,7 +89,7 @@ WHERE
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041033-b3ef86ec-be7f-42d4-89e0-e44e8e1790b6.png" />
 </p>
 
 #### 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
@@ -119,7 +119,7 @@ LIMIT 1
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041057-299ba58f-814c-45e5-b6b6-5ff94e7bca5a.png" />
 </p>
 
 #### 5. Which item was the most popular for each customer?
@@ -150,7 +150,7 @@ WHERE
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041071-db4e6200-38e4-4055-97b8-7ce6933d333f.png"/>
 </p>
 
 #### 6. Which item was purchased first by the customer after they became a member?
@@ -182,7 +182,7 @@ WHERE
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041082-e7b7cf45-520e-4eb3-924c-1493efc7cc10.png" />
 </p>
 
 #### 7. Which item was purchased just before the customer became a member?
@@ -214,7 +214,7 @@ WHERE
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041095-a1710554-b55b-442d-a2d7-7b829c4ebde8.png" />
 </p>
 
 #### 8. What is the total items and amount spent for each member before they became a member?
@@ -228,11 +228,11 @@ WITH member_sales AS (
     menu.price,
     members.join_date
   FROM 
-  dannys_diner.sales
-  INNER JOIN dannys_diner.menu
-    ON sales.product_id = menu.product_id
-  INNER JOIN dannys_diner.members
-    ON sales.customer_id = members.
+    dannys_diner.sales
+  INNER JOIN 
+    dannys_diner.menu ON sales.product_id = menu.product_id
+  INNER JOIN 
+    dannys_diner.members ON sales.customer_id = members.customer_id
   WHERE
     sales.order_date < members.join_date::DATE)
     
@@ -243,11 +243,11 @@ SELECT
 FROM 
   member_sales
 GROUP BY 
-  customer_id
+  customer_id 
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041116-86e1deb7-98e5-4377-ae1b-a2679d22e9dc.png" />
 </p>
 
 #### 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
@@ -269,7 +269,7 @@ ORDER BY
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041128-728515e2-4a10-483b-9f78-a950650d687b.png" />
 </p>
 
 #### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
@@ -297,7 +297,7 @@ ORDER BY
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041147-fc538434-1813-47a4-b082-5501e87ebf6d.png" />
 </p>
 
 ### Bonus Questions
@@ -320,7 +320,7 @@ SELECT
   CASE 
   WHEN members.join_date > sales.order_date THEN 'N'
   WHEN members.join_date <= sales.order_date THEN 'Y'
-  ELSE 'N' END
+  ELSE 'N' END AS member
 FROM 
   dannys_diner.sales
 LEFT JOIN 
@@ -333,7 +333,7 @@ ORDER BY
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041154-43fe9937-fcfd-49d4-901a-e2a0af52cd98.png" />
 </p>
 
 ### Rank All The Things
@@ -376,5 +376,5 @@ FROM
 ~~~~
 
 <p align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/69009356/177041169-12ed9bc0-724e-4b3b-88d7-42111af9c1d0.png"/>
 </p>

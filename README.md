@@ -260,3 +260,74 @@ GROUP BY
 ORDER BY 
   points DESC
 ~~~~
+
+### Bonus Questions
+### Join All The Things
+
+The following questions are related creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL.
+
+#### 11. Recreate the following table output using the available data:
+
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/69009356/177039984-b2c792b1-5d91-40b9-a84c-315e5151e9c9.png"/>
+</p>
+
+~~~~sql
+SELECT
+  sales.customer_id,
+  sales.order_date,
+  menu.product_name,
+  menu.price,
+  CASE 
+  WHEN members.join_date > sales.order_date THEN 'N'
+  WHEN members.join_date <= sales.order_date THEN 'Y'
+  ELSE 'N' END
+FROM 
+  dannys_diner.sales
+LEFT JOIN 
+  dannys_diner.menu ON sales.product_id = menu.product_id
+LEFT JOIN 
+  dannys_diner.members ON sales.customer_id = members.customer_id 
+ORDER BY
+  sales.customer_id,
+  sales.order_date
+~~~~
+
+### Rank All The Things
+#### 12. Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/69009356/177040049-2789a7c3-4590-4cc4-b6e9-c43a9a79d3eb.png"/>
+</p>
+
+~~~~sql
+WITH cte AS (
+  SELECT
+  sales.customer_id,
+  sales.order_date,
+  menu.product_name,
+  menu.price,
+    CASE 
+    WHEN members.join_date > sales.order_date THEN 'N'
+    WHEN members.join_date <= sales.order_date THEN 'Y'
+    ELSE 'N' END AS member
+  FROM 
+    dannys_diner.sales
+  LEFT JOIN 
+    dannys_diner.menu ON sales.product_id = menu.product_id
+  LEFT JOIN 
+    dannys_diner.members ON sales.customer_id = members.customer_id 
+  ORDER BY
+    sales.customer_id,
+    sales.order_date)
+
+SELECT
+  *,
+  CASE 
+  WHEN member = 'Y' THEN
+  RANK() OVER (
+        PARTITION BY customer_id, member
+        ORDER BY order_date) END as Ranking
+FROM 
+  cte
+~~~~
